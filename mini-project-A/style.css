@@ -8,14 +8,50 @@ canvas {
   display: block;
 }
 
+body {
+  background-color: #FCF2E5;
+
+}
+
 h1 {
-  text-align: center;
-  color: darkorange;
-  font-family: 'Arial Narrow Bold';
+  text-align: right;
+  color: #ff8c00;
+  font-weight: bolder;
+  font-family: Geneva;
+  font-size: 250%;
+  margin-bottom: calc(10% - 170px);
+  margin-right: calc(50% - 200px);
+}
+
+h2 {
+  color: #ad660e;
+  font-family: Geneva;
+  font-variant: small-caps;
+  text-align: left;
+  margin-top: calc(10% - 155px);
+  margin-right: calc(50% - 200px);
+  margin-left: calc(50% - 200px);
+  margin-bottom: calc(10% - 190px);
+}
+
+h3 {
+  color: #ad660e;
+  font-family: Geneva;
+  font-variant: small-caps;
+  font-style: italic;
 }
 
 #p5-container {
   position: absolute;
   left: calc(50% - 200px);
-  top: calc(50% - 200px);
+  top: calc(55% - 150px);
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 2px solid #ad660e;
+  margin-top: calc(10% - 90px);
+  margin-right: calc(50% - 210px);
+  margin-left: calc(50% - 210px);
+  margin-bottom: calc(10% - 70px);
 }

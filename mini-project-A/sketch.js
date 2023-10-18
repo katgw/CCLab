@@ -51,15 +51,6 @@ function draw() {
     SUN();
     ULURU();
     spaceSIGN();
-    push();
-    fill("#E3801C");
-    stroke(238, 128, 28);
-    textSize(25);
-    textAlign(CENTER);
-    strokeJoin(ROUND);
-    text("OUT, ABOUT, AND", width / 2, 50);
-    text("DOWN UNDER", width / 2, 80);
-    pop();
   } else if (sequence == 1) {
     // INSTRUCTIONS PAGE
     background(127, 224, 255);
