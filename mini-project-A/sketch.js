@@ -22,8 +22,8 @@ let rS, gS, bS;
 
 function setup() {
   let canvas = createCanvas(400, 400);
-  canvas.parent("myContainer");
-  createCanvas(400, 400);
+  canvas.parent("p5-container");
+
   x = width / 2;
   y = 320;
   dia = 50;

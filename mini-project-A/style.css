@@ -5,19 +5,15 @@ body {
 }
 
 canvas {
-  position: absolute;
-  left: 100px;
-  top: 100px;
+  display: block;
 }
 
-#p5.js {
-  position: absolute;
-  left: 100px;
-  top: 100px;
+h1 {
+  text-align: center;
 }
 
-#myContainer {
+#p5-container {
   position: absolute;
-  left: 300px;
-  top: 100px;
+  left: calc(50% - 200px);
+  top: calc(50% - 200px);
 }
