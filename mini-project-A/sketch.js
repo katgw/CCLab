@@ -21,6 +21,8 @@ let flwrColorIndex = 0;
 let rS, gS, bS;
 
 function setup() {
+  let canvas = createCanvas(400, 400);
+  canvas.parent("myContainer");
   createCanvas(400, 400);
   x = width / 2;
   y = 320;
@@ -44,7 +46,6 @@ let targetY = 400;
 let targetRad = 50;
 
 function draw() {
-  console.log(mouseX, mouseY);
 
   if (sequence == 0) {
     SUN();
@@ -365,8 +366,8 @@ function LAND() {
   rect(0, 340, 400, 150);
 
   //OBSTACLES
-    cactus();
-    flower();
+  cactus();
+  flower();
 }
 function ROO() {
   x = width / 2;
@@ -447,9 +448,9 @@ function cactus() {
     push();
     stroke("red");
     strokeWeight(1);
-    fill(255,0,0)
-    textSize(random(30,38));
-    text("OUCH!!", cactX-50, cactY-70);
+    fill(255, 0, 0)
+    textSize(random(30, 38));
+    text("OUCH!!", cactX - 50, cactY - 70);
     pop();
   } else {
     //
@@ -496,7 +497,7 @@ function flower() {
     textSize(30);
     noStroke();
     fill(255, 255, 0);
-    text("yipee!!", flwrX -35, flwrY - 70);
+    text("yipee!!", flwrX - 35, flwrY - 70);
     pop();
   } else {
     //
@@ -852,7 +853,7 @@ function keyPressed() {
       sequence++;
     }
     if (sequence > 4) {
-      sequence = 0; 
+      sequence = 0;
     }
     if (sequence == 0) {
       resetScenes();

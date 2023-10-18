@@ -1,7 +1,23 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
+
 canvas {
-  display: block;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+}
+
+#p5.js {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+}
+
+#myContainer {
+  position: absolute;
+  left: 300px;
+  top: 100px;
 }
