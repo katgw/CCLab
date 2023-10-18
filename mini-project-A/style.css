@@ -10,6 +10,8 @@ canvas {
 
 h1 {
   text-align: center;
+  color: darkorange;
+  font-family: 'Arial Narrow Bold';
 }
 
 #p5-container {
