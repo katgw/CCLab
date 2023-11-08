@@ -75,11 +75,11 @@ class Particle {
       if (this.x > mouseX) {
         this.shift = 0;
         this.shift++;
-        this.x += this.shift;
+        this.x += this.shift * 1.5;
       } else if (this.x < mouseX) {
         this.shift = 0;
         this.shift++;
-        this.x -= this.shift;
+        this.x -= this.shift * 1.5;
       }
     }
   }
