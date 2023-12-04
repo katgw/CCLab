@@ -1,9 +1,9 @@
 let trashImageFiles = [
-  "images/bag.png",
-  "images/bottle-green.png",
-  "images/can-red.png",
-  "images/coffee-cup.png",
-  "images/can-yellow.png",
+  "ocean-cleanup/images/bag.png",
+  "ocean-cleanup/images/bottle-green.png",
+  "ocean-cleanup/images/can-red.png",
+  "ocean-cleanup/images/coffee-cup.png",
+  "ocean-cleanup/images/can-yellow.png",
 ];
 let trashImages = []; // images
 let trashes = []; // Object
@@ -16,12 +16,12 @@ function preload() {
     trashImages.push(img);
   }
 
-  bam = loadImage("images/explosion.png");
-  net = loadImage("images/fishing-net.png");
+  bam = loadImage("ocean-cleanup/images/explosion.png");
+  net = loadImage("ocean-cleanup/images/fishing-net.png");
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, 500);
   angleMode(DEGREES);
 
   for (let i = 0; i < 10; i++) {
@@ -50,11 +50,11 @@ function draw() {
     t.checkMouse();
     if (t.a == 0) count++;
   }
-  
+
   if (count >= trashes.length) {
     textSize(20)
     fill("rgb(0,95,144)")
-    text("CONGRATS ON CLEANING THE OCEAN!", width / 2-180, height / 2);
+    text("CONGRATS ON CLEANING THE OCEAN!", width / 2 - 180, height / 2);
   }
 }
 
