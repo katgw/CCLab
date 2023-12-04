@@ -114,6 +114,11 @@ img {
   width: auto;
 }
 
+#img-height {
+  height: 200px;
+  width: auto
+}
+
 #icon {
   height: 70px;
   width: auto;
