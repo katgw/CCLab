@@ -308,13 +308,13 @@ div.scroll-container img {
 
 /* unvisited link */
 a:link {
-  color: rgb(255, 54, 54);
+  color: red;
   text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-  color: rgb(254, 50, 50);
+  color: red;
   text-decoration: none;
 }
 
