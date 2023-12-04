@@ -1,6 +1,6 @@
 function preload() {
-  img = loadImage("brush.png");
-  scrub = loadSound("scrub.mp3");
+  img = loadImage("oil-spill/brush.png");
+  scrub = loadSound("oil-spill/scrub.mp3");
 }
 function setup() {
   createCanvas(windowWidth, 500);
@@ -130,8 +130,8 @@ function clean() {
     brushCanvas.ellipse(mouseX + 20, mouseY + 5, 40, 20);
     brushCanvas.ellipse(mouseX - 10, mouseY + 10, 20, 10);
     brushCanvas.ellipse(mouseX + 10, mouseY, 20, 20);
-   if (scrub.isPlaying()==false)
-    scrub.play();
+    if (scrub.isPlaying() == false)
+      scrub.play();
   } else {
     scrub.stop();
   }
