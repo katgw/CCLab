@@ -116,6 +116,9 @@ class Flame {
   display() {
     let w = this.width * 5;
     let h = this.height + this.fluct;
+    if (h > 400) {
+      h = 400;
+    }
     push();
     blendMode(ADD);
     translate(this.x, this.y);

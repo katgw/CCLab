@@ -34,28 +34,42 @@ p {
 }
 
 #yellow-stat {
-  color: rgb(177, 165, 0);
+  color: rgb(255, 247, 16);
   font-weight: 900;
 }
 
 #blue-stat {
-  color: rgb(0, 170, 255);
+  color: rgb(44, 230, 255);
+  font-weight: 900;
+}
+
+#dblue-stat {
+  color: rgb(19, 0, 225);
   font-weight: 900;
 }
 
 #red-stat {
-  color: rgb(184, 0, 0);
+  color: rgb(255, 0, 55);
   font-weight: 900;
 }
 
 #orange-stat {
-  color: rgb(216, 126, 0);
+  color: rgb(255, 149, 0);
   font-weight: 900;
 }
 
 #purple-stat {
   color: rgb(91, 0, 176);
   font-weight: 900;
+}
+
+#green-stat {
+  color: rgb(15, 225, 0);
+  font-weight: 900;
+}
+
+#white-text {
+  color: white;
 }
 
 .container-landing-page {
@@ -103,10 +117,13 @@ img {
 
 #img-small {
   width: 270px;
+  height: auto;
 }
 
 #img-smaller {
   width: 190px;
+  height: auto;
+
 }
 
 #img-small-height {
@@ -287,4 +304,22 @@ div.scroll-container {
 
 div.scroll-container img {
   padding: 5px;
+}
+
+/* unvisited link */
+a:link {
+  color: rgb(255, 54, 54);
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(254, 50, 50);
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: green;
+  text-decoration: underline;
 }
