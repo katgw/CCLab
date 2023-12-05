@@ -44,13 +44,15 @@ function draw() {
     for (let i = 0; i < 10; i++) {
       particles.push(new Particle(mouseX, mouseY, random(2, 4)));
     }
+  }
+
+  if (mouseIsPressed) {
     if (spray.isPlaying() == false) {
       spray.play();
     } else {
       spray.stop();
     }
   }
-
   // updatge and display particles
   for (let i = 0; i < particles.length; i++) {
     let p = particles[i];
