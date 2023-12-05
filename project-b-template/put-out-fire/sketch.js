@@ -2,18 +2,21 @@ let FRAME_AREA = 30;
 
 let flames = [];
 let particles = [];
+let sequence = 0;
 
 function preload() {
   fire = loadImage("put-out-fire/fire.png");
   droplet = loadImage("put-out-fire/drop.png");
   spray = loadSound("put-out-fire/water-spray.mp3");
+  hose = loadImage("put-out-fire/hose.png");
 }
 
 function setup() {
-  createCanvas(800, 600);
+  angleMode(DEGREES);
+  createCanvas(600, 600);
 
   // FIRE
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 20; i++) {
     flames.push(new Flame(random(width), random(height - 50, height)));
   }
 }
@@ -21,60 +24,94 @@ function setup() {
 function draw() {
   background(0);
 
-  let count = 0;
-  for (let i = 0; i < flames.length; i++) {
-    let f = flames[i];
-    f.move();
-    f.expand();
-    f.decrease(particles);
-    f.display();
-    if (f.scale < 0.05) count++;
-  }
+  if (sequence == 0) {
+    fill("white");
+    textSize(30);
+    textAlign(CENTER);
+    text("🔥 Hey there firefighter! 🔥 ", width / 2, height / 2 - 20);
+    text("Press spacebar to start!", width / 2, height / 2 + 20);
+    keyPressed();
+  } else if (sequence == 1) {
+    let count = 0;
+    for (let i = 0; i < flames.length; i++) {
+      let f = flames[i];
+      f.move();
+      f.expand();
+      f.decrease(particles);
+      f.display();
+      if (f.scale < 0.05) count++;
+    }
 
-  // remove
-  for (let i = flames.length - 1; i >= 0; i--) {
-    let f = flames[i];
-    if (f.isDone) {
-      flames.splice(i, 1);
+    // remove
+    for (let i = flames.length - 1; i >= 0; i--) {
+      let f = flames[i];
+      if (f.isDone) {
+        flames.splice(i, 1);
+      }
+    }
+
+    //generate particles
+    if (mouseIsPressed) {
+      for (let i = 0; i < 10; i++) {
+        particles.push(new Particle(mouseX, mouseY, random(2, 4)));
+      }
+    }
+
+    // updatge and display particles
+    for (let i = 0; i < particles.length; i++) {
+      let p = particles[i];
+      p.move();
+      p.fall();
+      p.zigzag();
+      p.display();
+    }
+
+    // remove
+    for (let i = particles.length - 1; i >= 0; i--) {
+      let p = particles[i];
+      if (p.isDone) {
+        particles.splice(i, 1);
+      }
+    }
+    // display completion
+    if (flames.length == 0) {
+      textSize(30);
+      fill("orange");
+      textAlign(CENTER);
+      text("💪 CONGRATS FIREFIGHTER! 💪", width / 2, height / 2 - 10);
+      text("You put out all the fire!", width / 2, height / 2 + 30);
     }
   }
+  noCursor();
+  newCursor();
+}
 
-  //generate particles
-  if (mouseIsPressed) {
-    for (let i = 0; i < 10; i++) {
-      particles.push(new Particle(mouseX, mouseY, random(2, 4)));
+function newCursor() {
+  push();
+  translate(mouseX, mouseY);
+  imageMode(CENTER);
+  if (mouseX > width / 2) {
+    rotate(35);
+    image(hose, +10, +8);
+  } else if (mouseX < width) {
+    rotate(-35);
+    scale(-1, 1)
+    image(hose, +10, +8);
+  }
+  pop();
+}
+function keyPressed() {
+  if (key == " ") {
+    if (sequence == 0) {
+      sequence++;
     }
   }
+}
 
-  if (mouseIsPressed) {
-    if (spray.isPlaying() == false) {
-      spray.play();
-    } else {
-      spray.stop();
-    }
-  }
-  // updatge and display particles
-  for (let i = 0; i < particles.length; i++) {
-    let p = particles[i];
-    p.move();
-    p.fall();
-    p.zigzag();
-    p.display();
-  }
-
-  // remove
-  for (let i = particles.length - 1; i >= 0; i--) {
-    let p = particles[i];
-    if (p.isDone) {
-      particles.splice(i, 1);
-    }
-  }
-  // display completion
-  if (flames.length == 0) {
-    textSize(20);
-    fill("orange");
-    text("CONGRATS FIREFIGHTER!", width / 2 - 110, height / 2 - 10);
-    text("You put out all the fire!", width / 2 - 80, height / 2 + 10);
+function mousePressed() {
+  if (sequence == 1) {
+    if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) { spray.play() };
+  } else {
   }
 }
 
@@ -118,9 +155,6 @@ class Flame {
   display() {
     let w = this.width * 5;
     let h = this.height + this.fluct;
-    if (h > 400) {
-      h = 400;
-    }
     push();
     blendMode(ADD);
     translate(this.x, this.y);
@@ -139,7 +173,7 @@ class Particle {
     } else if (mouseX < width / 2) {
       this.xSpd = random(2, 4);
     }
-    this.ySpd = -7 + random(2, 4);
+    this.ySpd = -7 + random(2, 5);
     this.angle = 0;
     this.dia = tempDia;
 

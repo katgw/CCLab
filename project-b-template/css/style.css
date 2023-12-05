@@ -320,8 +320,14 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-  color: green;
+  color: rgb(0, 187, 0);
   text-decoration: underline;
+}
+
+a:hover #pink-link {
+  color: rgb(127, 0, 68);
+  text-decoration: underline;
+
 }
 
 .button {
@@ -330,15 +336,15 @@ a:hover {
   height: 60px;
   bottom: 40px;
   right: 40px;
-  background-color: rgb(114, 201, 180);
-  color: #FFF;
+  background-color: rgb(227, 144, 201);
   border-radius: 50px;
-  border: darkcyan;
+  border: rgb(139, 0, 81);
   border-width: 2px;
   border-style: solid;
   text-align: center;
 }
 
-#top-pad {
-  padding-top: 20px;
+#button {
+  padding-top: 10px;
+  font-size: 30px;
 }

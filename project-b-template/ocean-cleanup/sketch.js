@@ -16,14 +16,17 @@ function preload() {
     trashImages.push(img);
   }
 
-  bam = loadImage("ocean-cleanup/images/explosion.png");
   net = loadImage("ocean-cleanup/images/fishing-net.png");
+  swoosh = loadSound("ocean-cleanup/audio/swoosh.mp3");
+  waves = loadSound("ocean-cleanup/audio/waves.mp3")
 }
 
 function setup() {
-  createCanvas(windowWidth, 500);
+  createCanvas(windowWidth, 600);
   angleMode(DEGREES);
 
+  waves.play()
+  waves.loop()
   for (let i = 0; i < 10; i++) {
     let randomIndex = floor(random(trashImages.length)); /// 0, 1, 2
     let t = new Trash(
@@ -38,7 +41,7 @@ function setup() {
 function draw() {
   background("lightblue");
   NET(mouseX, mouseY);
-
+  //swooshSound();
   let count = 0;
   for (let i = 0; i < trashes.length; i++) {
     let t = trashes[i];
@@ -52,10 +55,15 @@ function draw() {
   }
 
   if (count >= trashes.length) {
-    textSize(20)
-    fill("rgb(0,95,144)")
-    text("CONGRATS ON CLEANING THE OCEAN!", width / 2 - 180, height / 2);
+    textSize(30);
+    textAlign(CENTER);
+    fill("rgb(0,95,144)");
+    text("CONGRATS ON CLEANING THE OCEAN!", width / 2, height / 2);
   }
+}
+
+function mousePressed() {
+  swoosh.play();
 }
 
 function NET(x, y) {
@@ -64,6 +72,7 @@ function NET(x, y) {
   if (mouseIsPressed) {
     rotate(45);
   }
+
   translate(35, -30);
   imageMode(CENTER);
   image(net, 0, 0);
