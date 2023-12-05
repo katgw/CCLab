@@ -308,13 +308,13 @@ div.scroll-container img {
 
 /* unvisited link */
 a:link {
-  color: red;
+  color: hotpink;
   text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-  color: red;
+  color: hotpink;
   text-decoration: none;
 }
 
@@ -322,4 +322,22 @@ a:visited {
 a:hover {
   color: green;
   text-decoration: underline;
+}
+
+.button {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgb(152, 225, 244);
+  color: #FFF;
+  border-radius: 50px;
+  border: darkcyan;
+  border-width: 5px;
+  text-align: center;
+}
+
+#top-pad {
+  padding-top: 20px;
 }
