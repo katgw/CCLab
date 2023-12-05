@@ -308,13 +308,13 @@ div.scroll-container img {
 
 /* unvisited link */
 a:link {
-  color: hotpink;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-  color: hotpink;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
@@ -330,11 +330,12 @@ a:hover {
   height: 60px;
   bottom: 40px;
   right: 40px;
-  background-color: rgb(152, 225, 244);
+  background-color: rgb(114, 201, 180);
   color: #FFF;
   border-radius: 50px;
   border: darkcyan;
-  border-width: 5px;
+  border-width: 2px;
+  border-style: solid;
   text-align: center;
 }
 
